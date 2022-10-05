@@ -1,0 +1,15 @@
+{
+    "name": "darius.kliminskas/php-oop-exam-dk",
+    "autoload": {
+        "psr-4": {
+            "DariusKliminskas\\PhpOopExamDk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Darius Kliminskas",
+            "email": "dariuskliminskas@gmail.com"
+        }
+    ],
+    "require": {}
+}
