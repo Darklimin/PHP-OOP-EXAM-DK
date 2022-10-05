@@ -9,6 +9,7 @@ use DariusKliminskas\PhpOopExamDk\Framework\Router;
 
 $container = new DIContainer();
 $router = $container->get(Router::class);
+$router->process();
 
-require 'view/Calculator/index.php';
+
 

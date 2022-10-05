@@ -14,6 +14,7 @@ class Router
 
     public function process(): void
     {
-
+        $controller = $this->di->get(CalcController::class);
+        $controller->enterData();
     }
 }
