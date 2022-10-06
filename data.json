@@ -1,8 +1,20 @@
-[
-    {
-        "data": "2000 0,56 diena 9"
+{
+    "5": {
+        "amount": "2000",
+        "price": "0.56",
+        "period": "diena",
+        "month": "9"
     },
-    {
-        "data": "2000 0,56 diena 9"
+    "6": {
+        "amount": "1666",
+        "price": "1.22",
+        "period": "naktis",
+        "month": "8"
+    },
+    "8": {
+        "amount": "2000",
+        "price": "0.56",
+        "period": "diena",
+        "month": "9"
     }
-]
+}

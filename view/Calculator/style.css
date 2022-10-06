@@ -4,11 +4,41 @@ h1 {
 }
 
 fieldset {
-    width: fit-content;
+    width: 60rem;
     margin: 2rem auto;
     text-align: center;
 }
 
 .user_input {
     width: 50rem;
+}
+
+.red_text {
+    color: red;
+}
+
+table {
+    text-align: center;
+    background: azure;
+    border: 1px solid black;
+    width: 80rem;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    font-weight: bold;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.below {
+    margin: 1rem;
+}
+
+.below_buttons {
+    display: flex;
+    justify-content: center;
 }

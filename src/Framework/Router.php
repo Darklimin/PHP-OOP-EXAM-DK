@@ -12,9 +12,20 @@ class Router
     {
     }
 
-    public function process(): void
+    public function process(string $method): void
     {
         $controller = $this->di->get(CalcController::class);
-        $controller->enterData();
+        if ($method == 'POST') {
+            if (isset($_POST['data'])) {
+                $controller->enterData();
+            }
+        } elseif ($method == 'DELETE') {
+            $controller->deleteEntry();
+        } elseif ($method == 'COUNT') {
+            $controller->countAll();
+        }
+        else {
+            $controller->showData();
+        }
     }
 }

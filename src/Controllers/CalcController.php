@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace DariusKliminskas\PhpOopExamDk\Controllers;
 
+use DariusKliminskas\PhpOopExamDk\Exceptions\InputValidationException;
 use DariusKliminskas\PhpOopExamDk\Framework\DIContainer;
+use DariusKliminskas\PhpOopExamDk\Models\CalcAll;
 use DariusKliminskas\PhpOopExamDk\Models\DataFromFile;
 use DariusKliminskas\PhpOopExamDk\Models\DataToFile;
+use DariusKliminskas\PhpOopExamDk\Models\DeleteEntry;
+use DariusKliminskas\PhpOopExamDk\Models\ValidateData;
 
 class CalcController
 {
@@ -17,10 +21,37 @@ class CalcController
     public function enterData()
     {
         $enterData = $this->di->get(DataToFile::class);
-        $enterData->toFile();
+        $validateData = $this->di->get(ValidateData::class);
+        try {
+            $dataToWrite = $validateData->validate();
+            $enterData->toFile($dataToWrite);
+        } catch (InputValidationException $exception) {
+            $exception->getMessage();
+        }
         $getData = $this->di->get(DataFromFile::class);
         $data = $getData->fromFile();
 
         require 'view/Calculator/index.php';
+    }
+
+    public function deleteEntry(): void {
+        $delete = $this->di->get(DeleteEntry::class);
+        $delete->deleteEntry();
+        $this->showData();
+    }
+
+    public function showData(): void
+    {
+        $getData = $this->di->get(DataFromFile::class);
+        $data = $getData->fromFile();
+
+        require 'view/Calculator/index.php';
+    }
+
+    public function countAll(): void
+    {
+        $count = $this->di->get(CalcAll::class);
+        $count->calc();
+        $this->showData();
     }
 }
