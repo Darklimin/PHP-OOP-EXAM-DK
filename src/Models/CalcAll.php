@@ -15,7 +15,7 @@ class CalcAll
     public function calc(): array
     {
         $output = ['diena' => 0,
-                    'naktis' => 0,
+            'naktis' => 0,
             'suma' => 0];
         $data = $this->di->get(DataFromFile::class);
         $dataArray = $data->fromFile();
@@ -28,7 +28,7 @@ class CalcAll
             }
         }
         $output['suma'] = $output['naktis'] + $output['diena'];
-        var_dump($output);
+
         return $output;
     }
 }

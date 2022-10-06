@@ -10,6 +10,7 @@ use DariusKliminskas\PhpOopExamDk\Models\CalcAll;
 use DariusKliminskas\PhpOopExamDk\Models\DataFromFile;
 use DariusKliminskas\PhpOopExamDk\Models\DataToFile;
 use DariusKliminskas\PhpOopExamDk\Models\DeleteEntry;
+use DariusKliminskas\PhpOopExamDk\Models\Pay;
 use DariusKliminskas\PhpOopExamDk\Models\ValidateData;
 
 class CalcController
@@ -48,10 +49,29 @@ class CalcController
         require 'view/Calculator/index.php';
     }
 
-    public function countAll(): void
+    public function countAll()
     {
         $count = $this->di->get(CalcAll::class);
-        $count->calc();
-        $this->showData();
+        $sums = $count->calc();
+        $getData = $this->di->get(DataFromFile::class);
+        $data = $getData->fromFile();
+
+        require 'view/Calculator/index.php';
+    }
+
+    public function finalPay()
+    {
+        $count = $this->di->get(CalcAll::class);
+        $sums = $count->calc();
+        $final = $this->di->get(Pay::class);
+        if (isset($sums) && !empty($sums)) {
+            try {
+                $pay = $final->pay();
+            } catch (InputValidationException $exception) {
+                $exception->getMessage();
+            }
+        }
+
+        require 'view/Calculator/index.php';
     }
 }

@@ -23,8 +23,9 @@ class Router
             $controller->deleteEntry();
         } elseif ($method == 'COUNT') {
             $controller->countAll();
-        }
-        else {
+        } elseif ($method == 'PAY') {
+            $controller->finalPay();
+        } else {
             $controller->showData();
         }
     }
