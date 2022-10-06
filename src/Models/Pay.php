@@ -26,7 +26,7 @@ class Pay
             $serializedData[] = json_encode($dataArray, JSON_PRETTY_PRINT);
             file_put_contents('./data.json', $serializedData);
         } else throw new InputValidationException
-    ("Prieš mokėdami turite suskaičiuoti bendrą kainą");
+        ("Prieš mokėdami turite suskaičiuoti bendrą kainą");
 
         return $pay;
     }

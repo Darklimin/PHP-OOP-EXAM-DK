@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8"/>
     <title>Mokesčiai</title>
     <link rel="stylesheet" type="text/css" href="./view/Calculator/style.css"/>
 </head>
+
 <body>
 
 <h1>Mokesčiai už elektrą</h1>
 
 <fieldset>
+
     <legend>Įveskite savo duomenis</legend>
+
     <form method="POST" action="./index.php">
         <input type="hidden" name="id" value="">
-
         <input class="user_input" type="text" name='data' placeholder="Čia įveskite duomenis">
-
         <input type="submit" value="Įvesti duomenis">
         <p>Nurodykite savo duomenis:</p>
         <p>Per mėnesį suvartotų elektros kilovatvalandžių kiekį, tarifą ir ar tai dieninė ar naktinė elektra bei mėnesį
@@ -25,16 +27,19 @@
         <p>arba</p>
         <p class="pvz">2000 0.56 naktis 9</p>
     </form>
-</fieldset>
 
+</fieldset>
 
 <?php if (isset($data)): ?>
 
     <fieldset>
+
         <legend>Įvedėte šiuos duomenis</legend>
+
         <div class="red_text">
             <?php if (isset($exception)) echo $exception->getMessage() ?>
         </div>
+
         <?php if (sizeof($data) > 0): ?>
             <table>
                 <thead>
@@ -113,9 +118,13 @@
             </table>
         <?php endif; ?>
     </fieldset>
+
 <?php endif; ?>
+
 <?php if (isset($pay) && $pay > 0): ?>
     <h2>Sumokėta už elektrą <?= $pay ?></h2>
 <?php endif; ?>
+
 </body>
+
 </html>

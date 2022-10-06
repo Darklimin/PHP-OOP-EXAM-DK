@@ -6,11 +6,9 @@ namespace DariusKliminskas\PhpOopExamDk\Exceptions;
 
 class ContainerArgumentTypeException extends \Exception
 {
-
     public const ISSUE_NO_TYPE = 'no_type';
     public const ISSUE_NON_NAMED_TYPE = 'non_named_type'; // Is not a simple named type (union or intersection)
     public const ISSUE_PRIMITIVE_TYPE = 'primitive_type';
-
 
     public function __construct(private string $argumentName, private string $issue)
     {
@@ -39,5 +37,4 @@ class ContainerArgumentTypeException extends \Exception
                 return "Cannot resolve primitive arguments (use Containers::set): $identifier";
         }
     }
-
 }

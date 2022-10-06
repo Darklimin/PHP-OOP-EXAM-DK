@@ -12,7 +12,6 @@ class DeleteEntry
     {
     }
 
-
     public function deleteEntry(): void
     {
         $data = $this->di->get(DataFromFile::class);

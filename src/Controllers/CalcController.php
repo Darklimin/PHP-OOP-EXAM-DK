@@ -35,7 +35,8 @@ class CalcController
         require 'view/Calculator/index.php';
     }
 
-    public function deleteEntry(): void {
+    public function deleteEntry(): void
+    {
         $delete = $this->di->get(DeleteEntry::class);
         $delete->deleteEntry();
         $this->showData();
