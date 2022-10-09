@@ -53,7 +53,6 @@
                 </thead>
 
                 <tbody>
-
                 <?php foreach ($data as $key => $value): ?>
                     <tr>
                         <td><?= $value['amount'] ?></td>
@@ -68,12 +67,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr>
-                    </tr>
                 <?php endforeach; ?>
-                <tr>
-
-                </tr>
                 </tbody>
 
             </table>
@@ -109,11 +103,7 @@
                         <td><?= $sums['naktis'] ?></td>
                         <td><?= $sums['suma'] ?></td>
                     </tr>
-                    <tr>
-                    </tr>
                 <?php endif; ?>
-                <tr>
-                </tr>
                 </tbody>
             </table>
         <?php endif; ?>
