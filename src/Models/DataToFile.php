@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DariusKliminskas\PhpOopExamDk\Models;
 
-class DataToFile
+use DariusKliminskas\PhpOopExamDk\Interfaces\DataToFileInterface;
+
+class DataToFile implements DataToFileInterface
 {
     public function toFile(array $validatedData): void
     {

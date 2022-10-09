@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace DariusKliminskas\PhpOopExamDk\Models;
 
 use DariusKliminskas\PhpOopExamDk\Framework\DIContainer;
+use DariusKliminskas\PhpOopExamDk\Interfaces\DeleteEntryInterface;
 
-class DeleteEntry
+class DeleteEntry implements DeleteEntryInterface
 {
     public function __construct(private DIContainer $di)
     {

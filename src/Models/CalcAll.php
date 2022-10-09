@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace DariusKliminskas\PhpOopExamDk\Models;
 
 use DariusKliminskas\PhpOopExamDk\Framework\DIContainer;
+use DariusKliminskas\PhpOopExamDk\Interfaces\CalcAllInterface;
 
-class CalcAll
+class CalcAll implements CalcAllInterface
 {
     public function __construct(private DIContainer $di)
     {

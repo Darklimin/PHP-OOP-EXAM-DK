@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DariusKliminskas\PhpOopExamDk\Models;
 
-class DataFromFile
+use DariusKliminskas\PhpOopExamDk\Interfaces\DataFromFileInterface;
+
+class DataFromFile implements DataFromFileInterface
 {
     public function fromFile(): array
     {

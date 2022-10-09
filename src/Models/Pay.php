@@ -6,8 +6,9 @@ namespace DariusKliminskas\PhpOopExamDk\Models;
 
 use DariusKliminskas\PhpOopExamDk\Exceptions\InputValidationException;
 use DariusKliminskas\PhpOopExamDk\Framework\DIContainer;
+use DariusKliminskas\PhpOopExamDk\Interfaces\PayInterface;
 
-class Pay
+class Pay implements PayInterface
 {
     public function __construct(private DIContainer $di)
     {

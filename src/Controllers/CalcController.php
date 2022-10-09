@@ -6,6 +6,7 @@ namespace DariusKliminskas\PhpOopExamDk\Controllers;
 
 use DariusKliminskas\PhpOopExamDk\Exceptions\InputValidationException;
 use DariusKliminskas\PhpOopExamDk\Framework\DIContainer;
+use DariusKliminskas\PhpOopExamDk\Interfaces\CalcControllerInterface;
 use DariusKliminskas\PhpOopExamDk\Models\CalcAll;
 use DariusKliminskas\PhpOopExamDk\Models\DataFromFile;
 use DariusKliminskas\PhpOopExamDk\Models\DataToFile;
@@ -13,13 +14,13 @@ use DariusKliminskas\PhpOopExamDk\Models\DeleteEntry;
 use DariusKliminskas\PhpOopExamDk\Models\Pay;
 use DariusKliminskas\PhpOopExamDk\Models\ValidateData;
 
-class CalcController
+class CalcController implements CalcControllerInterface
 {
     public function __construct(private DIContainer $di)
     {
     }
 
-    public function enterData()
+    public function enterData(): void
     {
         $enterData = $this->di->get(DataToFile::class);
         $validateData = $this->di->get(ValidateData::class);
@@ -50,7 +51,7 @@ class CalcController
         require 'view/Calculator/index.php';
     }
 
-    public function countAll()
+    public function countAll(): void
     {
         $count = $this->di->get(CalcAll::class);
         $sums = $count->calc();
@@ -60,7 +61,7 @@ class CalcController
         require 'view/Calculator/index.php';
     }
 
-    public function finalPay()
+    public function finalPay(): void
     {
         $count = $this->di->get(CalcAll::class);
         $sums = $count->calc();
